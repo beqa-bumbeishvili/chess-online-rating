@@ -32,7 +32,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName)
+                <a href="@Url.Action("UserProfile",new {userId=item.ID })">@item.FullName</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)

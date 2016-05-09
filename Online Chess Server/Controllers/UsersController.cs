@@ -20,6 +20,47 @@ namespace Online_Chess_Server.Controllers
             return View(db.Users.ToList());
         }
 
+        public ActionResult UserProfile( int userId)
+        {
+
+            var model = new UserProfileModel();
+            model.Progress = db.Ratings.Where(r => r.UserID == userId)
+                                       .OrderBy(r => r.RatingChangeDate)
+                                       .Select(e=>new ChartViewModel() { Time=e.RatingChangeDate.ToString(),Value=e.RatingValue})
+                                       .ToList();
+
+
+            model.FullName = db.Users.Where(e => e.ID == userId).Select(x => x.FullName).FirstOrDefault().ToString();
+            model.UserName = db.Users.Where(e => e.ID == userId).FirstOrDefault().UserName;
+            model.LichessName = db.Users.Where(e => e.ID == userId).Select(x => x.LichessName).FirstOrDefault().ToString();
+            model.GamesPlayedLink = db.Games.Where(e => e.FirstPlayerID == userId).Count() + db.Games.Where(e => e.SecondPlayerID == userId).Count();
+            model.CurrentRating = db.Ratings.Where(e => e.UserID == userId).OrderByDescending(x => x.RatingChangeDate).Select(z => z.RatingValue).FirstOrDefault();
+            model.ImageName = "pawn";
+            if (model.CurrentRating >= 1550)
+                model.ImageName = "bishop";
+
+            var firstAndWin = db.Games.Where(e => e.FirstPlayerID == userId && e.Result == 1).Count();
+            var secondAndWin = db.Games.Where(x => x.SecondPlayerID == userId && x.Result == -1).Count();
+            var totalGames = db.Games.Where(z => z.FirstPlayerID == userId || z.SecondPlayerID == userId).Count();
+            var winningPercentShare = (firstAndWin + secondAndWin) * 100 / 3;
+          
+            if (model.CurrentRating >= 1600 && winningPercentShare > 30 && totalGames >= 20) 
+                model.ImageName = "knight";
+
+            if (model.CurrentRating >= 1650 && winningPercentShare > 40 && totalGames >= 30)
+                model.ImageName = "rock";
+
+            if (model.CurrentRating >= 1700 && winningPercentShare > 50 && totalGames >= 50)
+                model.ImageName = "queen";
+
+            if (model.CurrentRating >= 1800 && winningPercentShare > 70 && totalGames >= 80)
+                model.ImageName = "king";
+
+
+
+            return View(model);
+        }
+
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {

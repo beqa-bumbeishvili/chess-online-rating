@@ -18,6 +18,9 @@
 <table class="table">
     <tr>
         <th>
+           rank
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.User.FullName) (@Html.DisplayNameFor(model => model.User.UserName))
         </th>
         @{  if ((string)Session["UserRole"] == "admin")
@@ -31,17 +34,21 @@
         </th>
         <th></th>
     </tr>
-
+    @{var i = 1; }
     @foreach (var item in Model)
     {
         <tr>
+            <td>@(i++)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.FullName)
-                @if (item.User.UserName != null) 
-                    {
-               <text>(</text>@Html.DisplayFor(modelItem => item.User.UserName);<text >)</text>
-                }
+
+                <a href="@Url.Action("UserProfile","Users",new {userId=item.UserID })">
+                @item.User.FullName
                 
+                </a>
+                @if (item.User.UserName != null)
+                {
+                    <text>(</text>@Html.DisplayFor(modelItem => item.User.UserName);<text >)</text>
+                }
                
             </td>
             @{  if ((string)Session["UserRole"] == "admin")

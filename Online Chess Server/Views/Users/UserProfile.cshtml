@@ -1,0 +1,65 @@
+﻿@model Online_Chess_Server.Models.UserProfileModel
+
+
+<h4>მომხმარებელი:   </h4> @Model.FullName 
+<h4>ფეისბუქის სახელი:  </h4> @Model.UserName
+<h4>სახელი lichess-ზე: </h4> @Model.LichessName
+<h4>თამაშების რაოდენობა:  </h4> @Model.GamesPlayedLink
+<h4>მიმდინარე რეიტინგი:  </h4> @Model.CurrentRating
+<h4>წოდება  </h4> 
+@if (Model.ImageName == "pawn"){
+    <img src="http://www.picz.ge/img/s4/1605/9/7/761aabf485de.png"/>
+}
+@if (Model.ImageName == "bishop"){
+<img src="http://www.picz.ge/img/s3/1605/9/6/6a1057871a56.png" />
+}
+@if (Model.ImageName == "knight"){
+<img src="http://www.picz.ge/img/s3/1605/9/2/29a00eb7911a.png" />
+}
+@if (Model.ImageName == "rock"){
+<img src="http://www.picz.ge/img/s2/1605/9/a/a036f8e2dfcc.png" />
+}
+@if (Model.ImageName == "queen"){
+<img src="http://www.picz.ge/img/s3/1605/9/6/6a1057871a56.png" />
+}
+@if (Model.ImageName == "king"){
+<img src="http://www.picz.ge/img/s2/1605/9/d/def205f1be47.png" />
+}
+
+
+
+
+
+<h4>რეიტინგის ცვლილების სტატისტიკა:  </h4>
+<div class="col-md-12">
+    <canvas id="myChart" width="400" height="100"></canvas>
+</div>
+
+
+<script>
+    var ctx = document.getElementById("myChart");
+    var chartModels = @Html.Raw(Json.Encode(Model.Progress));
+    
+    var chartLabels = chartModels.map(function(v){return  v.Time;})
+    var chartData = chartModels.map(function(v){ return v.Value;})
+    debugger;
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels:chartLabels,
+            datasets: [{
+                label: 'Point',
+                data: chartData
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            }
+        }
+    });
+</script>
