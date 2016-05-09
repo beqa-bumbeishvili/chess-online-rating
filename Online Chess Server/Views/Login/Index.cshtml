@@ -1,0 +1,33 @@
+﻿@ViewBag.title
+<!-- Login Container -->
+<section class="login">
+    <form action="" method="post">
+
+        <!-- The Username Field -->
+        <label for="username" id="loginUsername">
+            Username
+            <input type="text" name="username" id="username" />
+        </label>
+
+        <!-- The Password Field -->
+        <label for="password" id="loginPassword">
+            Password
+            <input type="password" name="password" id="password" />
+        </label>
+
+        <!-- The Remember Me Checkbox -->
+        <input type="checkbox" name="remember" id="remember" />
+        <label class="check" for="remember" id="loginCheck"><span></span>Remember Me</label>
+
+        <!-- Clearn both sides -->
+        <div class="clear"></div>
+
+        <!-- Recover Button -->
+        <input type="button" value="Recover" id="recoverButton"/>
+
+        <!-- The Login Button -->
+        <input type="submit" value="Login" id="submitButton" />
+    </form>
+</section>
+
+

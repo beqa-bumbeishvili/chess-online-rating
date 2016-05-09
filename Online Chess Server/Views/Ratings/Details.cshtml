@@ -1,0 +1,42 @@
+﻿@model Online_Chess_Server.Models.Rating
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rating</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingChangeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingChangeDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
