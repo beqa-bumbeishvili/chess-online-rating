@@ -15,6 +15,9 @@
 .dl-horizontal dt {
     white-space: normal;
 }
+.selected{
+background-color:#B1B1B1;
+}
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,

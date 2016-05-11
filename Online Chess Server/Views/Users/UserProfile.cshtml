@@ -1,65 +1,138 @@
 ﻿@model Online_Chess_Server.Models.UserProfileModel
 
+<div style="background-color:#e3e2c4;" class="col-md-12">
+    <br />
+    <h1 style="text-align:center">Player Profile</h1>
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+            <dt>
+                Name:
+            </dt>
 
-<h4>მომხმარებელი:   </h4> @Model.FullName 
-<h4>ფეისბუქის სახელი:  </h4> @Model.UserName
-<h4>სახელი lichess-ზე: </h4> @Model.LichessName
-<h4>თამაშების რაოდენობა:  </h4> @Model.GamesPlayedLink
-<h4>მიმდინარე რეიტინგი:  </h4> @Model.CurrentRating
-<h4>წოდება  </h4> 
-@if (Model.ImageName == "pawn"){
-    <img src="http://www.picz.ge/img/s4/1605/9/7/761aabf485de.png"/>
-}
-@if (Model.ImageName == "bishop"){
-<img src="http://www.picz.ge/img/s3/1605/9/6/6a1057871a56.png" />
-}
-@if (Model.ImageName == "knight"){
-<img src="http://www.picz.ge/img/s3/1605/9/2/29a00eb7911a.png" />
-}
-@if (Model.ImageName == "rock"){
-<img src="http://www.picz.ge/img/s2/1605/9/a/a036f8e2dfcc.png" />
-}
-@if (Model.ImageName == "queen"){
-<img src="http://www.picz.ge/img/s3/1605/9/6/6a1057871a56.png" />
-}
-@if (Model.ImageName == "king"){
-<img src="http://www.picz.ge/img/s2/1605/9/d/def205f1be47.png" />
-}
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+            <br />
+            @{ if (Html.DisplayFor(model => model.UserName).ToString() != "")
+            {
+                    <dt>
+                        Facebook NickName:
+                    </dt>
 
+                    <dd>
+                        @Html.DisplayFor(model => model.UserName)
 
+                    </dd>
+                    <br />
+                } }
+            <dt>
+                Lichess Name:
+            </dt>
 
+            <dd>
+                @Html.DisplayFor(model => model.LichessName)
+            </dd>
+            <br />
+            <dt>
+                Games Played:
+            </dt>
 
+            <dd>
+                @Model.GamesPlayedLink
+            </dd>
+            <br />
+            <dt>
+                Current Rating:
+            </dt>
 
-<h4>რეიტინგის ცვლილების სტატისტიკა:  </h4>
-<div class="col-md-12">
-    <canvas id="myChart" width="400" height="100"></canvas>
+            <dd>
+                @Model.CurrentRating
+            </dd>
+            <br />
+            <dt>
+                Level:
+            </dt>
+
+            <dd>
+                @Model.ImageName
+            </dd>
+            <br />
+
+            <dt class="center-block">
+                Honorary Title:
+            </dt>
+
+            <dd>
+                @if (Model.ImageName == "pawn")
+                {
+                    <img src="http://www.picz.ge/img/s2/1605/10/e/e95d91dbb21d.png" height="153px" width="100px" />
+                }
+                @if (Model.ImageName == "bishop")
+            {
+
+                    <img src="http://www.picz.ge/img/s4/1605/10/3/3e42b767acf6.png" height="153px" width="120px" />
+                }
+                @if (Model.ImageName == "knight")
+            {
+                    <img src="http://www.picz.ge/img/s3/1605/10/8/8778752c818d.png" height="153px" width="93px" />
+                }
+                @if (Model.ImageName == "rock")
+            {
+                    <img src="http://www.picz.ge/img/s4/1605/10/9/95405841361f.png" height="153px" width="120px" />
+                }
+                @if (Model.ImageName == "queen")
+            {
+                    <img src="http://www.picz.ge/img/s4/1605/10/c/ccc16a9a6c55.png" height="153px" width="155px" />
+                }
+                @if (Model.ImageName == "king")
+                {
+                    <img src="http://www.picz.ge/img/s2/1605/10/6/62e5550c3e19.png" height="153px" width="134px" />
+                }
+
+            </dd>
+            </dl>
+            <br />
 </div>
+    <div class="col-md-8">
+       <dl> <dt style="text-align:center;">
+            Player Statistics:
+        </dt>
+
+        <dd>
+            <canvas id="myChart" width="200" height="100"></canvas>
+        </dd>
+
+        </dl></div>
 
 
-<script>
-    var ctx = document.getElementById("myChart");
-    var chartModels = @Html.Raw(Json.Encode(Model.Progress));
-    
-    var chartLabels = chartModels.map(function(v){return  v.Time;})
-    var chartData = chartModels.map(function(v){ return v.Value;})
-    debugger;
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels:chartLabels,
-            datasets: [{
-                label: 'Point',
-                data: chartData
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: false
-                    }
+
+
+
+    <script>
+        var ctx = document.getElementById("myChart");
+        var chartModels = @Html.Raw(Json.Encode(Model.Progress));
+
+        var chartLabels = chartModels.map(function(v){return  v.Time;})
+        var chartData = chartModels.map(function(v){ return v.Value;})
+        debugger;
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels:chartLabels,
+                datasets: [{
+                    label: 'Point',
+                    data: chartData
                 }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
+</div>

@@ -4,8 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 @{
     if ((string)Session["UserRole"] == "admin")
     {
@@ -14,64 +12,65 @@
         </p>
     }
 }
-
-<table class="table">
-    <tr>
-        <th>
-           rank
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.FullName) (@Html.DisplayNameFor(model => model.User.UserName))
-        </th>
-        @{  if ((string)Session["UserRole"] == "admin")
-            {
-                <th>
-                    @Html.DisplayNameFor(model => model.RatingChangeDate)
-                </th>
-            } }
-        <th>
-            @Html.DisplayNameFor(model => model.RatingValue)
-        </th>
-        <th></th>
-    </tr>
-    @{var i = 1; }
-    @foreach (var item in Model)
-    {
+<div class="col-md-12">
+    <div  style="background-color:white">
+    <table class="table table-hover table-bordered" style="border:2px solid black;">
         <tr>
-            <td>@(i++)</td>
-            <td>
+            <th style="text-align:center">
+                Rank
+            </th>
+            <th style="text-align:center">
+                Name
+            </th>
+            <th style="text-align:center">
+                Username
+            </th>
+            <th style="text-align:center">
+                Rating
+            </th>
 
-                <a href="@Url.Action("UserProfile","Users",new {userId=item.UserID })">
-                @item.User.FullName
-                
-                </a>
-                @if (item.User.UserName != null)
-                {
-                    <text>(</text>@Html.DisplayFor(modelItem => item.User.UserName);<text >)</text>
-                }
-               
-            </td>
-            @{  if ((string)Session["UserRole"] == "admin")
-                {
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RatingChangeDate)
-                    </td>
-                }
-            }
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingValue)
-            </td>
-            @{
-                if ((string)Session["UserRole"] == "admin")
-                {
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                    </td>
-                }
-            }
         </tr>
-                }
+        @{var i = 1; }
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td style="text-align:center">@(i++)</td>
+                <td style="text-align:center">
 
-</table>
+                    <a href="@Url.Action("UserProfile","Users",new {userId=item.UserID })">
+                        @item.User.FullName
+                    </a>
+
+
+                </td>
+
+                <td style="text-align:center">
+
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+
+
+
+                </td>
+
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.RatingValue)
+                </td>
+
+
+                @{
+                        if ((string)Session["UserRole"] == "admin")
+                        {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                        }
+                }
+            </tr>
+                        }
+
+    </table>
+</div>
+
+    </div>

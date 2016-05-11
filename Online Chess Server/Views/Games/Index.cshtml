@@ -4,8 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 @{
     if ((string)Session["UserRole"] == "admin")
     {
@@ -15,43 +13,67 @@
     }
 }
 
-<table class="table">
+<table class="table table-bordered table-hover"     style="background-color:white;">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User.FullName)
+        <th style="text-align:center;">
+           Player1
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User1.FullName)
+        <th style="text-align:center;">
+            Player2
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Result)
+        <th style="text-align:center;">
+           Winner
         </th>
-        <th>
+        <th style="text-align:center;">
             @Html.DisplayNameFor(model => model.GameLink)
         </th>
-        <th>
+        <th style="text-align:center;">
             @Html.DisplayNameFor(model => model.PlayDate)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model)
 {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.FullName)
+        <td style="text-align:center;">
+           <a href="@Url.Action("UserProfile","Users",new {userId=item.User.ID })">@item.User.FullName</a>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User1.FullName)
+        <td style="text-align:center;">
+            <a href="@Url.Action("UserProfile","Users",new {userId=item.User1.ID })">@item.User1.FullName</a>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Result)
+        <td style="text-align:center;">
+           @{
+
+               if (Html.DisplayFor(modelItem => item.Result).ToString() == "1" )
+               {
+                   if (Html.DisplayFor(modelItem => item.User.FullName).ToString() != Html.DisplayFor(modelItem => item.User1.FullName).ToString())
+                   {
+                      @Html.DisplayFor(modelItem => item.User.FullName).ToString().Split()[0];
+                   }
+                   else {@Html.DisplayFor(modelItem => item.User.FullName).ToString().Split()[0];<text> (1)</text>
+                   }
+               }
+               else if (Html.DisplayFor(modelItem => item.Result).ToString() == "-1")
+               {
+                   if (Html.DisplayFor(modelItem => item.User.FullName).ToString() != Html.DisplayFor(modelItem => item.User1.FullName).ToString())
+                   {
+                    @Html.DisplayFor(modelItem => item.User1.FullName).ToString().Split()[0];
+                   }
+                   else {@Html.DisplayFor(modelItem => item.User1.FullName).ToString().Split()[0]; <text> (2)</text>
+        }
+    }
+              else {
+                       string a = Html.DisplayFor(modelItem => item.User.FullName).ToString();
+                       string b = a.Replace(a, " ");
+                   <text>draw</text> @b;
+                   }
+               }
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameLink)
+        <td style="text-align:center;">
+            <a href="@Html.DisplayFor(modelItem => item.GameLink)" target="_blank">view game</a>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlayDate)
+        <td style="text-align:center;">
+            @Html.DisplayFor(modelItem => item.PlayDate).ToString().Split()[0]
         </td>
 @{
     if ((string)Session["UserRole"] == "admin")
