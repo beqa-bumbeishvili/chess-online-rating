@@ -21,7 +21,7 @@ namespace Online_Chess_Server.Models
         public string GameLink { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? PlayDate { get; set; }
+        public DateTime PlayDate { get; set; }
 
         public virtual User User { get; set; }
 
