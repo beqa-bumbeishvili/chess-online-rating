@@ -35,26 +35,34 @@ namespace Online_Chess_Server.Controllers
             model.LichessName = db.Users.Where(e => e.ID == userId).Select(x => x.LichessName).FirstOrDefault().ToString();
             model.GamesPlayedLink = db.Games.Where(e => e.FirstPlayerID == userId).Count() + db.Games.Where(e => e.SecondPlayerID == userId).Count();
             model.CurrentRating = db.Ratings.Where(e => e.UserID == userId).OrderByDescending(x => x.RatingChangeDate).Select(z => z.RatingValue).FirstOrDefault();
-            model.ImageName = "pawn";
-            if (model.CurrentRating >= 1550)
-                model.ImageName = "bishop";
+            model.ImageName = "Pawn";
+            if (model.CurrentRating >= 1525)
+                model.ImageName = "Bishop";
+            if (model.CurrentRating >= 1560) 
+                model.ImageName = "Knight";
 
-            var firstAndWin = db.Games.Where(e => e.FirstPlayerID == userId && e.Result == 1).Count();
-            var secondAndWin = db.Games.Where(x => x.SecondPlayerID == userId && x.Result == -1).Count();
-            var totalGames = db.Games.Where(z => z.FirstPlayerID == userId || z.SecondPlayerID == userId).Count();
-            var winningPercentShare = (firstAndWin + secondAndWin) * 100 / 3;
-          
-            if (model.CurrentRating >= 1600 && winningPercentShare > 30 && totalGames >= 20) 
-                model.ImageName = "knight";
+            if (model.CurrentRating >= 1646)
+                model.ImageName = "Rock";
 
-            if (model.CurrentRating >= 1650 && winningPercentShare > 40 && totalGames >= 30)
-                model.ImageName = "rock";
+            if (model.CurrentRating >= 1750)
+                model.ImageName = "Queen";
 
-            if (model.CurrentRating >= 1700 && winningPercentShare > 50 && totalGames >= 50)
-                model.ImageName = "queen";
+            if (model.CurrentRating >= 1800)
+                model.ImageName = "King";
 
-            if (model.CurrentRating >= 1800 && winningPercentShare > 70 && totalGames >= 80)
-                model.ImageName = "king";
+            if (model.CurrentRating >= 1900)
+                model.ImageName = "Candidate";
+            if (model.CurrentRating >= 2000)
+                model.ImageName = "Expert";
+
+            if (model.CurrentRating >= 2200)
+                model.ImageName = "Master";
+
+            if (model.CurrentRating >= 2400)
+                model.ImageName = "Senior Master";
+
+            if (model.CurrentRating >= 2600)
+                model.ImageName = "Grandmaster";
 
 
 

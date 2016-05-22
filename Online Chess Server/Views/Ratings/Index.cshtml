@@ -12,55 +12,60 @@
         </p>
     }
 }
-<div class="col-md-12">
+<div style="margin-left:190px;" class="col-md-8">
     <div  style="background-color:white">
-    <table class="table table-hover table-bordered" style="border:2px solid black;">
-        <tr>
-            <th style="text-align:center">
-                Rank
+    <table class="table table-bordered">
+        <tr style="border:2px solid #919353;">
+            <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                <b style="font-size:17px;">Rank</b> 
             </th>
-            <th style="text-align:center">
-                Name
+            <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                <b style="font-size:17px;">Name</b> 
             </th>
-            <th style="text-align:center">
-                Username
+            <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                <b style="font-size:17px;">Username</b> 
             </th>
-            <th style="text-align:center">
-                Rating
+            <th style="text-align:center; border:2px solid #515302; background-color:#919353">     
+                <b style="font-size:17px;">Blitz</b> 
             </th>
-
+            <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                <b style="font-size:17px;">Classic</b>
+            </th>
+            <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                <b style="font-size:17px;">Rapid</b>
+            </th>
         </tr>
         @{var i = 1; }
         @foreach (var item in Model)
             {
-            <tr>
-                <td style="text-align:center">@(i++)</td>
-                <td style="text-align:center">
+            <tr style=""> <!--background:url(http://www.2700chess.com/img/tr_bg_leaders.jpg)-->
+                <td width="5px"  style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576;"><b>@(i++)</b></td>
+                <td width="150px"  style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576; ">
 
-                    <a href="@Url.Action("UserProfile","Users",new {userId=item.UserID })">
-                        @item.User.FullName
+                  <a  href="@Url.Action("UserProfile","Users",new {userId=item.UserID })">
+                      <b>   @item.User.FullName</b>
                     </a>
 
 
                 </td>
 
-                <td style="text-align:center">
+                <td width="100px"  style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576; ">
 
-                    @Html.DisplayFor(modelItem => item.User.UserName)
+                    <b>   @Html.DisplayFor(modelItem => item.User.UserName)</b> 
 
 
 
                 </td>
 
-                <td style="text-align:center">
-                    @Html.DisplayFor(modelItem => item.RatingValue)
+                <td width="80px"  style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576; ">
+                 <b>   @Html.DisplayFor(modelItem => item.RatingValue)</b>
                 </td>
-
-
+            <td width="50px"  style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576; "></td>
+                <td width="50px"  style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576; "></td>
                 @{
                         if ((string)Session["UserRole"] == "admin")
                         {
-                        <td>
+                        <td style="border:2px solid #d2d3a6; background-color:#B4B576;">
                             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                             @Html.ActionLink("Delete", "Delete", new { id = item.ID })

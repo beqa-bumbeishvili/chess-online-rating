@@ -13,79 +13,94 @@
     }
 }
 
-<table class="table table-bordered table-hover"     style="background-color:white;">
-    <tr>
-        <th style="text-align:center;">
-           Player1
-        </th>
-        <th style="text-align:center;">
-            Player2
-        </th>
-        <th style="text-align:center;">
-           Winner
-        </th>
-        <th style="text-align:center;">
-            @Html.DisplayNameFor(model => model.GameLink)
-        </th>
-        <th style="text-align:center;">
-            @Html.DisplayNameFor(model => model.PlayDate)
-        </th>
-    </tr>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td style="text-align:center;">
-           <a href="@Url.Action("UserProfile","Users",new {userId=item.User.ID })">@item.User.FullName</a>
-        </td>
-        <td style="text-align:center;">
-            <a href="@Url.Action("UserProfile","Users",new {userId=item.User1.ID })">@item.User1.FullName</a>
-        </td>
-        <td style="text-align:center;">
-           @{
+<div style="" class="col-md-12">
+    <div style="background-color:white">
 
-               if (Html.DisplayFor(modelItem => item.Result).ToString() == "1" )
-               {
-                   if (Html.DisplayFor(modelItem => item.User.FullName).ToString() != Html.DisplayFor(modelItem => item.User1.FullName).ToString())
-                   {
-                      @Html.DisplayFor(modelItem => item.User.FullName).ToString().Split()[0];
-                   }
-                   else {@Html.DisplayFor(modelItem => item.User.FullName).ToString().Split()[0];<text> (1)</text>
-                   }
-               }
-               else if (Html.DisplayFor(modelItem => item.Result).ToString() == "-1")
-               {
-                   if (Html.DisplayFor(modelItem => item.User.FullName).ToString() != Html.DisplayFor(modelItem => item.User1.FullName).ToString())
-                   {
-                    @Html.DisplayFor(modelItem => item.User1.FullName).ToString().Split()[0];
-                   }
-                   else {@Html.DisplayFor(modelItem => item.User1.FullName).ToString().Split()[0]; <text> (2)</text>
-        }
+        <table class="table table-bordered table-hover" style="background-color:white;">
+            <tr style="border:2px solid #919353;">
+                <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                    <b style="font-size:17px;">White </b>
+</th>
+                <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                    <b style="font-size:17px;">Black </b>
+                </th>
+                <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                    <b style="font-size:17px;">Winner </b>
+                </th>
+                <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                    <b style="font-size:17px;">Game Link </b>
+                </th>
+                <th style="text-align:center; border:2px solid #515302; background-color:#919353">
+                    <b style="font-size:17px;">Play Date </b>
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576;">
+                      <b>  <a href="@Url.Action("UserProfile","Users",new {userId=item.User.ID })">@item.User.FullName</a></b>
+                    </td>
+                    <td style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576;">
+                        <b>    <a href="@Url.Action("UserProfile","Users",new {userId=item.User1.ID })">@item.User1.FullName</a></b> 
+                    </td>
+
+
+
+                    <td style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576;">
+                        @{
+
+                            if (Html.DisplayFor(modelItem => item.Result).ToString() == "1")
+                            {
+                                <text><b>White</b> </text>
     }
-              else {
-                       string a = Html.DisplayFor(modelItem => item.User.FullName).ToString();
-                       string b = a.Replace(a, " ");
-                   <text>draw</text> @b;
-                   }
-               }
-        </td>
-        <td style="text-align:center;">
-            <a href="@Html.DisplayFor(modelItem => item.GameLink)" target="_blank">view game</a>
-        </td>
-        <td style="text-align:center;">
-            @Html.DisplayFor(modelItem => item.PlayDate).ToString().Split()[0]
-        </td>
-@{
-    if ((string)Session["UserRole"] == "admin")
+    else if (Html.DisplayFor(modelItem => item.Result).ToString() == "-1")
     {
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-        }
-    }
-    </tr>
-}
+                                <text><b>  Black </b>  </text>
+                            }
 
-</table>
+                            else {
+                                string a = Html.DisplayFor(modelItem => item.User.FullName).ToString();
+                                string b = a.Replace(a, " ");
+                                <text><b> Draw</b> </text> @b;
+                            }
+                        }
+                    </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <td style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576;">
+                        <a href="@Html.DisplayFor(modelItem => item.GameLink)" target="_blank"><b>view game</b></a>
+                    </td>
+                    <td style="text-align:center; border:2px solid #d2d3a6; background-color:#B4B576;">
+                        <b>  @Html.DisplayFor(modelItem => item.PlayDate).ToString().Split()[0]</b> 
+                    </td>
+                    @{
+                        if ((string)Session["UserRole"] == "admin")
+                        {
+                            <td style="border:2px solid #d2d3a6; background-color:#B4B576;">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        }
+                    }
+                </tr>
+                        }
+
+        </table>
+    </div>
+</div>
