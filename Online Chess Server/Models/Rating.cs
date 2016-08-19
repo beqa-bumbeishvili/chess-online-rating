@@ -13,7 +13,7 @@ namespace Online_Chess_Server.Models
         public int? UserID { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? RatingChangeDate { get; set; }
+        public DateTime RatingChangeDate { get; set; }
 
         public int RatingValue { get; set; }
 

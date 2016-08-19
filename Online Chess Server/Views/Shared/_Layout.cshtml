@@ -1,7 +1,5 @@
 ﻿@{
     Layout = null;
-
-
     var action = ViewContext.RouteData.Values["Action"].ToString();
     var controller = ViewContext.RouteData.Values["Controller"].ToString();
 }
@@ -13,21 +11,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <meta name="author" content="">
     <title>Online Chess Server</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
-
     <link href="~/Content/Site.css" rel="stylesheet">
     <link href="~/Content/business-casual.css" rel="stylesheet">
-    <link rel='shortcut icon' href='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS8WJnQFZ9Coop8B_GzkxbaZfERveDpYOjyqWxxrxj_k1Ii6s9u' type='image/x-icon'/ >
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-
+    <link rel='shortcut icon' href='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS8WJnQFZ9Coop8B_GzkxbaZfERveDpYOjyqWxxrxj_k1Ii6s9u' type='image/x-icon'>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+    <style>
+         @@media all and (max-width: 350px) {
+      .navbar-brand{
+              float:none;
+              padding:0px 0px;
+              line-height:0px;
+            }
+        }
+        </style>
 </head>
 <body>
-    <div class="brand" style="color:#e7e7e7">Online Chess Server</div>
+    <div class="brand" style="color:#e7e7e7; margin-top:-4%;" >Online Chess Server</div>
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -53,24 +58,24 @@
                     <li class="navlist @(controller=="Games" && action == "Index" ? "selected" : "")">
                         <a href="@Url.Action("Index", "Games")">Games</a>
                     </li>
-                    <li class="navlist @(controller=="Users" && action == "Index" ? "selected" : "")">
-                        <a href="@Url.Action("Index", "Users")">Users</a>
+                    <li class="navlist @(controller=="Lichess" && action == "Index" ? "selected" : "")">
+                        <a href="@Url.Action("Index", "Lichess")">Lichess</a>
                     </li>
                 </ul>
                     </div>
                     <!-- /.navbar-collapse -->
-         
+
 </div>
         <!-- /.container -->
     </nav>
 
     <div class="container">
-        @RenderBody();
+        @RenderBody()
     </div>
 
     <!-- /.container -->
     <!-- jQuery -->
-    <script src="~/Scripts/jquery.js"></script>
+    @*<script src="~/Scripts/jquery.js"></script>*@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Scripts/bootstrap.min.js"></script>

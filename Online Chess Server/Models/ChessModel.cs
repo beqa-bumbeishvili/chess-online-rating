@@ -8,7 +8,7 @@ namespace Online_Chess_Server.Models
     public partial class ChessModel : DbContext
     {
         public ChessModel()
-            : base("name=ChessModel1")
+            : base("name=ChessModel4")
         {
         }
 

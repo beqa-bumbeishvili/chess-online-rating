@@ -20,6 +20,11 @@ namespace Online_Chess_Server.Controllers
             var groupedRatings = db.Ratings.GroupBy(a => a.UserID);
             var newestScore = groupedRatings.Select(a => a.Max(b => b.ID));
             var newRatings = db.Ratings.Where(a => newestScore.Contains(a.ID)).OrderByDescending(b => b.RatingValue);
+            var newRatingsNUsers = from n in newRatings
+                                   join u in db.Users on n.UserID equals u.ID into ps
+                                   from u in ps.DefaultIfEmpty()
+                                   select n;
+            newRatingsNUsers = newRatingsNUsers.OrderByDescending(e=>e.RatingValue);
             return View(newRatings.ToList());
         }
 

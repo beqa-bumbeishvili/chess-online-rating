@@ -112,3 +112,60 @@ D:\GithubProjects\chess-online-rating\Online Chess Server\bin\Newtonsoft.Json.xm
 D:\GithubProjects\chess-online-rating\Online Chess Server\obj\Debug\Online Chess Server.dll
 D:\GithubProjects\chess-online-rating\Online Chess Server\obj\Debug\Online Chess Server.pdb
 D:\GithubProjects\chess-online-rating\Online Chess Server\obj\Debug\Online Chess Server.csprojResolveAssemblyReference.cache
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\ApplicationInsights.config
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\csc.exe
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\System.Collections.Immutable.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\System.Reflection.Metadata.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\vbc.exe
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\VBCSCompiler.exe
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\roslyn\VBCSCompiler.exe.config
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Online Chess Server.dll.config
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Online Chess Server.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Online Chess Server.pdb
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Antlr3.Runtime.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\EntityFramework.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\EntityFramework.SqlServer.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.Agent.Intercept.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.DependencyCollector.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.Web.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.WindowsServer.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.ApplicationInsights.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.Web.Infrastructure.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Newtonsoft.Json.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Helpers.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Mvc.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Optimization.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Razor.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.WebPages.Deployment.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.WebPages.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.WebPages.Razor.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\WebGrease.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\EntityFramework.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\EntityFramework.SqlServer.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.DependencyCollector.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.Web.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.AI.WindowsServer.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.ApplicationInsights.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Helpers.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Mvc.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Optimization.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.Razor.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.WebPages.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.WebPages.Deployment.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\System.Web.WebPages.Razor.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Antlr3.Runtime.pdb
+E:\GithubProjects\chess-online-rating\Online Chess Server\bin\Newtonsoft.Json.xml
+E:\GithubProjects\chess-online-rating\Online Chess Server\obj\Debug\Online Chess Server.dll
+E:\GithubProjects\chess-online-rating\Online Chess Server\obj\Debug\Online Chess Server.pdb
+E:\GithubProjects\chess-online-rating\Online Chess Server\obj\Debug\Online Chess Server.csprojResolveAssemblyReference.cache
